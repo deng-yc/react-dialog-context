@@ -17,5 +17,5 @@ export default class ReactNativeDialogContext extends React.Component<ReactNativ
     };
     addHost(theDialog: IDialog): Promise<void>;
     removeHost(theDialog: IDialog): Promise<void>;
-    render(): JSX.Element;
+    render(): any;
 }

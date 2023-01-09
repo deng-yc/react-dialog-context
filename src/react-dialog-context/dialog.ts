@@ -1,4 +1,7 @@
-import { IDialog, IDialogContext } from "./types";
+import {
+  IDialog,
+  IDialogContext,
+} from './types';
 
 const contexts: { [name: string]: IDialogContext } = {};
 
@@ -124,5 +127,15 @@ export class Dialog {
         });
     }
 }
-export const dialog = new Dialog();
+type addPrefixToObject<T, P extends string> = {
+    [K in keyof T as K extends string ? `${P}${K}` : never]: T[K];
+};
+
+type DialogShowMethod = (obj: any, addData?: any) => Promise<any>;
+
+type DialogContextTypes = {
+    WithRouter: DialogShowMethod;
+    [key: string]: DialogShowMethod;
+};
+export const dialog: Dialog & addPrefixToObject<DialogContextTypes, "show"> = new Dialog() as any;
 export default dialog;

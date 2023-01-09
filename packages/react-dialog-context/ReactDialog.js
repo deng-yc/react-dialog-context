@@ -7,7 +7,7 @@ export function ReactDialog(props) {
         content = dialog.owner;
     }
     else {
-        content = React.createElement(dialog.owner, Object.assign({ dialog: dialog }, dialog.activationData));
+        content = React.createElement(dialog.owner, { dialog: dialog, ...dialog.activationData });
     }
     return React.createElement(DialogContext.Provider, { value: { dialog } }, content);
 }

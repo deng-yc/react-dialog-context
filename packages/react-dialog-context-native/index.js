@@ -42,7 +42,7 @@ export default class ReactNativeDialogContext extends React.Component {
                 components.push(React.createElement(ReactDialog, { key: dialog.id, dialog: dialog }));
             }
         }
-        return React.createElement(View, Object.assign({ style: viewStyles }, viewProps),
+        return React.createElement(View, { style: viewStyles, ...viewProps },
             components,
             children);
     }

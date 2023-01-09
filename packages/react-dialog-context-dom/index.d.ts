@@ -17,5 +17,5 @@ export default class ReactDialogContext extends React.Component<ReactDialogConte
     };
     addHost(theDialog: IDialog): Promise<void>;
     removeHost(theDialog: IDialog): Promise<void>;
-    render(): JSX.Element;
+    render(): any;
 }
